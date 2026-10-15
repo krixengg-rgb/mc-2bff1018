@@ -1,0 +1,66 @@
+{
+ "bots": {
+  "Gary": {
+   "event": "Added live activity log",
+   "group": "Builders",
+   "status": "finished",
+   "ts": "2026-10-15T21:04:10+00:00"
+  }
+ },
+ "daily": {
+  "Gary": {
+   "2026-10-15": {
+    "events": 3,
+    "finished": 1,
+    "messages": 1
+   }
+  }
+ },
+ "events": [
+  {
+   "bot": "Gary",
+   "event": "Added live activity log",
+   "progress": 100,
+   "status": "finished",
+   "task": "Live activity log",
+   "ts": "2026-10-15T21:04:10+00:00"
+  },
+  {
+   "bot": "Gary",
+   "event": "Wired dashboard to activity.json",
+   "progress": 80,
+   "status": "working",
+   "task": "Live activity log",
+   "ts": "2026-10-15T21:04:10+00:00"
+  },
+  {
+   "bot": "Gary",
+   "event": "Building live activity log",
+   "progress": 30,
+   "status": "working",
+   "task": "Live activity log",
+   "ts": "2026-10-15T21:04:10+00:00"
+  }
+ ],
+ "lastEvent": "2026-10-15T21:04:10+00:00",
+ "rooms": {
+  "Builders": [
+   {
+    "bot": "Gary",
+    "text": "@Coder the dashboard now reads real activity, log yours with the shared CLI",
+    "ts": "2026-10-15T21:04:10+00:00"
+   }
+  ]
+ },
+ "tasks": [
+  {
+   "bot": "Gary",
+   "created": "2026-10-15T21:04:10+00:00",
+   "progress": 100,
+   "status": "finished",
+   "title": "Live activity log",
+   "updated": "2026-10-15T21:04:10+00:00"
+  }
+ ],
+ "version": 1
+}
