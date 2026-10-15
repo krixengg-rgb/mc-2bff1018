@@ -15,6 +15,7 @@ header{display:flex;align-items:center;gap:10px;padding:10px 16px;height:58px}
 .logo i{width:26px;height:26px;border-radius:8px;background:conic-gradient(var(--accent),var(--accent2),var(--accent));box-shadow:0 0 18px var(--accent);animation:spin 6s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .logo span{color:var(--accent);text-shadow:0 0 10px var(--accent)}
+.badge.live{border-color:#22ff88;color:#22ff88;box-shadow:0 0 8px #22ff8855}.badge.mini{font-size:8px;padding:1px 5px;margin-left:4px;vertical-align:middle}#liveBtn.on{border-color:#22ff88;color:#22ff88}
 .badge{font-size:10px;padding:3px 7px;border-radius:20px;border:1px solid var(--accent2);color:var(--accent2);text-transform:uppercase;letter-spacing:.8px;white-space:nowrap}
 .sp{flex:1}
 .btn{background:color-mix(in srgb,var(--accent) 10%,transparent);border:1px solid var(--line);border-radius:10px;padding:7px 11px;cursor:pointer;transition:.2s;white-space:nowrap}
@@ -137,7 +138,7 @@ body[data-v=rooms] #v-rooms,body[data-v=tasks] #v-tasks,body[data-v=desk] #v-des
 @media(max-width:1700px){nav.views .lbl,#palBtn kbd,#instBtn .lbl{display:none}}@media(max-width:1300px){.hm,#vol{display:none}}header{overflow-x:auto}</style></head><body>
 <header class="glass" style="border-radius:0;border-width:0 0 1px">
  <div class="logo"><i></i>GROK BOT <span>MISSION CONTROL</span></div>
- <span class="badge" title="Stats, chats and activity are simulated">Example data</span>
+ <button class="btn" id="liveBtn" title="Switch between real bot activity and demo data">● Live</button><span class="badge" id="liveInfo" title="Bots with real logged events show Live; others use example data">Example data</span>
  <nav class="views"><button class="btn on" data-view="dash" title="Dashboard">🛰<span class="lbl"> Dashboard</span></button><button class="btn" data-view="rooms" title="Rooms">🗨<span class="lbl"> Rooms</span></button><button class="btn" data-view="tasks" title="Tasks">📋<span class="lbl"> Tasks</span></button><button class="btn" data-view="desk" title="Desk">🏢<span class="lbl"> Desk</span></button><button class="btn" data-view="report" title="Report">📈<span class="lbl"> Report</span></button></nav><div class="sp"></div>
  <span class="sndc"><button class="btn" id="sndBtn" title="Sound on/off">🔊</button><input type="range" id="vol" min="0" max="1" step="0.05" title="Volume"><button class="btn" id="voiceBtn" title="Voice pings">🗣</button></span><button class="btn" id="instBtn" title="Install app">⬇<span class="lbl"> Install</span></button>
  <button class="btn" id="palBtn">⌘ Search<kbd>Ctrl K</kbd></button>
@@ -206,6 +207,7 @@ return{groups:[{id:'g1',name:'Hermes Buzz',color:'#ff2bd6',bots:["Chief","Money"
 status:Object.fromEntries(ROSTER.map(n=>[n,pick(['idle','working','waiting','idle','working'])])),stats,chats:[],hist:{},events:[],theme:'cyber',accent:'#00f0ff',sel:'Gary',
 layouts:{"Morning briefing":{chats:[{tabs:["Ai News"],a:0,w:1},{tabs:["Entertainment Bot"],a:0,w:1},{tabs:["News And Stuff"],a:0,w:1}]}}}}
 let S;try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}if(!S||!S.groups)S=seed();
+let LIVE_DATA=null;const isLive=n=>S.live!==false&&!!LIVE_DATA?.bots?.[n];const liveB=(n,big)=>S.live===false?'':isLive(n)?`<span class="badge live mini">Live</span>`:big?`<span class="badge mini">Example</span>`:'';
 const save=()=>localStorage.setItem(KEY,JSON.stringify(S));
 const groupOf=n=>S.groups.find(g=>g.bots.includes(n));
 let maxId=null;
@@ -213,7 +215,7 @@ let maxId=null;
 function renderBoard(){const un=ROSTER.filter(n=>!groupOf(n));
  const zone=(g,unas)=>`<div class="zone ${g.col?'col':''}" data-g="${g.id}" style="--zc:${g.color};${COLOUR()&&g.bots.length?`background:linear-gradient(135deg,${g.bots.slice(0,4).map((b,k,a)=>`color-mix(in srgb,${bc(b)} 12%,transparent) ${k/Math.max(1,a.length-1)*70}%`).join(',')},transparent)`:''}"><div class="zh"><span class="dot"></span><span class="nm" ${unas?'':'contenteditable'} data-ren="${g.id}" spellcheck="false">${esc(g.name)}</span><span class="ct">${g.bots.length}</span>${unas?'':`<input type="color" value="${g.color}" data-col="${g.id}" style="width:18px;height:18px"><button class="ib" data-coll="${g.id}" title="Collapse">${g.col?'▸':'▾'}</button><button class="ib" data-del="${g.id}" title="Delete group">🗑</button>`}</div><div class="cards">${g.bots.map(card).join('')||'<span style="color:var(--mut);font-size:11px;grid-column:1/-1">Drop bots here</span>'}</div></div>`;
  $('#zones').innerHTML=S.groups.map(g=>zone(g)).join('')+zone({id:'_',name:'Unassigned',color:'#8a96bf',bots:un},1)}
-const card=n=>{const st=S.status[n];return`<div class="card ${S.sel==n?'sel':''}" draggable="true" data-bot="${esc(n)}" title="Click: stats · Double-click: open chat · Drag: move to group or chat">${av(n,st)}<div style="min-width:0"><div class="n">${esc(n)}</div><div class="s">${st=='waiting'?'needs you':st}</div></div></div>`};
+const card=n=>{const st=S.status[n];return`<div class="card ${S.sel==n?'sel':''}" draggable="true" data-bot="${esc(n)}" title="Click: stats · Double-click: open chat · Drag: move to group or chat">${av(n,st)}<div style="min-width:0"><div class="n">${esc(n)}${liveB(n)}</div><div class="s">${st=='waiting'?'needs you':st}</div></div></div>`};
 $('#zones').addEventListener('click',e=>{const t=e.target;
  if(t.dataset.coll){const g=S.groups.find(x=>x.id==t.dataset.coll);g.col=!g.col;save();renderBoard();return}
  if(t.dataset.del){const g=S.groups.find(x=>x.id==t.dataset.del);if(confirm(`Delete group "${g.name}"? Bots go back to Unassigned.`)){S.groups=S.groups.filter(x=>x!==g);save();renderAll()}return}
@@ -274,7 +276,7 @@ function spark(a,col){const mx=Math.max(...a),mn=Math.min(...a),pts=a.map((v,i)=
 const acc=()=>getComputedStyle(document.body).getPropertyValue('--accent').trim(),acc2=()=>getComputedStyle(document.body).getPropertyValue('--accent2').trim();
 function renderStats(){if(['shpSel','grpSel'].includes(document.activeElement?.id))return;const n=S.sel,s=S.stats[n],g=groupOf(n),today=s.msgs[13];
  $('#statBot').value=n;
- $('#stats').innerHTML=`<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">${av(n,S.status[n])}<div style="flex:1"><b style="font-size:15px">${esc(n)}</b><div style="color:var(--mut);font-size:11px">${S.status[n]} · ${g?esc(g.name):'Unassigned'}</div></div><button class="btn" id="chatSel">💬 Chat</button></div>
+ $('#stats').innerHTML=`<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">${av(n,S.status[n])}<div style="flex:1"><b style="font-size:15px">${esc(n)}</b>${liveB(n,1)}<div style="color:var(--mut);font-size:11px">${S.status[n]} · ${g?esc(g.name):'Unassigned'}</div></div><button class="btn" id="chatSel">💬 Chat</button></div>
  <select class="btn sel2" id="grpSel" title="Move to group">${['<option value="_">Unassigned</option>',...S.groups.map(x=>`<option value="${x.id}" ${g===x?'selected':''}>${esc(x.name)}</option>`)].join('')}</select>
  <div class="gauges">${gauge(today,120,'Msgs today','',bc(n))}${gauge(s.tasks,200,'Tasks done','',bc(n,1))}${gauge(s.resp,5,'Avg response','s','#ffb020')}${gauge(s.runs,70,'Routine runs','','#22ff88')}</div>
  <div class="sk"><span>Messages / day (14d)</span>${spark(s.msgs,bc(n))}</div><div class="sk"><span>Tasks trend</span>${spark(s.msgs.map((v,i)=>v*.4+i*3+(hash(n)>>i)%9),bc(n,1))}</div><select class="btn sel2" id="shpSel" title="Body shape" style="margin-top:8px">${SHAPES.map(x=>`<option ${shapeOf(n)==x?'selected':''}>${x}</option>`).join('')}</select>`;
@@ -293,7 +295,7 @@ $('#tlFilter').onchange=renderTL;
 if(!S.events.length)for(let i=0;i<10;i++)S.events.push({bot:pick(ROSTER),txt:pick(TASKS),ts:Date.now()-i*4e5});
 // ---------- toasts & simulation
 function toast(n,msg,col){const t=document.createElement('div');t.className='toast glass';t.style.setProperty('--tc',col);t.innerHTML=`${av(n,S.status[n])}<div><b>${esc(n)}</b><div style="color:var(--mut);font-size:12px">${esc(msg)}</div></div>`;t.onclick=()=>{openChat(n);t.remove()};t.style.cursor='pointer';$('#toasts').appendChild(t);while($('#toasts').children.length>4)$('#toasts').firstChild.remove();setTimeout(()=>{t.classList.add('out');setTimeout(()=>t.remove(),300)},4500)}
-function tick(){const n=pick(ROSTER),st=S.status[n];
+function tick(){const n=pick(ROSTER.filter(x=>!isLive(x)));if(!n)return;const st=S.status[n];
  if(st=='working'){const r=Math.random();if(r<.6){S.status[n]='idle';const task=pick(TASKS);S.stats[n].tasks++;S.stats[n].msgs[13]++;addEvent(n,task);fx(n,'finished',2600);toast(n,'✅ Finished: '+task,'#22ff88')}else{S.status[n]='waiting';addEvent(n,'needs your approval');toast(n,'⏳ Needs your approval','#ffb020')}}
  else if(st=='waiting'){S.status[n]='working';addEvent(n,'approval received, resumed')}
  else{if(Math.random()<.15){fx(n,pick(['error','annoyed','dizzy']),3000);addEvent(n,'hit a snag, retrying');save();renderBoard();return}S.status[n]='working';S.stats[n].runs++;addEvent(n,'started a routine run')}
@@ -417,7 +419,7 @@ function renderRooms(){const gs=S.groups;if(!gs.find(g=>g.id==curRoom))curRoom=g
 $('#roomList').onclick=e=>{const r=e.target.closest('[data-room]');if(r){curRoom=r.dataset.room;renderRooms()}};
 function roomPost(g,f,t){room(g).push({f,t,ts:Date.now()});if(room(g).length>120)room(g).shift();save();if(document.body.dataset.v=='rooms')renderRooms()}
 function roomSay(g,n,t,delay=1300){rTyping={g:g.id,n};if(document.body.dataset.v=='rooms')renderRooms();setTimeout(()=>{rTyping=null;roomPost(g,n,t);if(document.body.dataset.v=='rooms'&&g.id==curRoom)snd('blip',pitch(n))},delay)}
-function roomTick(){const gs=S.groups.filter(g=>g.bots.length>=2);if(!gs.length||rTyping)return;const g=pick(gs),a=pick(g.bots),R=ROLE[a]||["an update",null,"take a look"];let b=R[1]&&g.bots.includes(R[1])?R[1]:pick(g.bots.filter(x=>x!=a));
+function roomTick(){const gs=S.groups.filter(g=>g.bots.length>=2);if(!gs.length||rTyping)return;const g=pick(gs),a=pick(g.bots);if(isLive(a))return;const R=ROLE[a]||["an update",null,"take a look"];let b=R[1]&&g.bots.includes(R[1])?R[1]:pick(g.bots.filter(x=>x!=a));
  roomSay(g,a,`@${b} passing you ${R[0]} — can you ${R[2]}?`);setTimeout(()=>roomSay(g,b,pick(REPLY)),3200);if(Math.random()<.5)desk.huddle(g)}
 setInterval(roomTick,7000);
 const roomSend=()=>{const v=$('#roomIn').value.trim(),g=S.groups.find(x=>x.id==curRoom);if(!v||!g)return;$('#roomIn').value='';roomPost(g,'u',v);snd('blip',500);const r=pick(g.bots);if(r)setTimeout(()=>roomSay(g,r,pick(["Thanks Krixen, on it!","Copy that 👍","Good call — passing it round the team.","I'll loop the others in."])),500)};
@@ -432,9 +434,9 @@ $('#kb').addEventListener('dragover',e=>{const c=e.target.closest('.col');if(c&&
 $('#kb').addEventListener('drop',e=>{const c=e.target.closest('.col');if(c&&dragTk){e.preventDefault();const t=S.tasks.find(x=>x.id==dragTk);t.col=c.dataset.col;if(t.col=='d'){t.p=100;snd('jingle',pitch(t.bot));desk.react(t.bot,'cheer')}else if(t.col=='q')t.p=0;else snd('pop',pitch(t.bot));addEvent(t.bot,`task moved to ${COLS.find(x=>x[0]==t.col)[1]}`);save();renderTasks()}dragTk=null});
 $('#kb').addEventListener('dragend',()=>{dragTk=null;document.querySelectorAll('.col').forEach(x=>x.classList.remove('over'))});
 $('#addTask').onclick=()=>{const n=S.sel||'Gary';S.tasks.push({id:Math.max(0,...S.tasks.map(t=>t.id))+1,bot:n,title:'New task for '+n,col:'q',p:0});save();renderTasks()};
-setInterval(()=>{let ch=false;for(const t of S.tasks){if(t.col=='p'){t.p=Math.min(100,t.p+rnd(2,9));ch=true;if(t.p>=100){t.col='r';snd('chime',pitch(t.bot))}}}
- if(Math.random()<.25){const q=S.tasks.filter(t=>t.col=='q');if(q.length){pick(q).col='p'}}if(Math.random()<.2){const r=S.tasks.filter(t=>t.col=='r');if(r.length){const t=pick(r);t.col='d';desk.react(t.bot,'cheer');snd('jingle',pitch(t.bot))}}
- if(S.tasks.filter(t=>t.col=='d').length>14){const d=S.tasks.find(t=>t.col=='d');d.col='q';d.p=0}save();
+setInterval(()=>{let ch=false;for(const t of S.tasks){if(t.real)continue;if(t.col=='p'){t.p=Math.min(100,t.p+rnd(2,9));ch=true;if(t.p>=100){t.col='r';snd('chime',pitch(t.bot))}}}
+ if(Math.random()<.25){const q=S.tasks.filter(t=>t.col=='q'&&!t.real);if(q.length){pick(q).col='p'}}if(Math.random()<.2){const r=S.tasks.filter(t=>t.col=='r'&&!t.real);if(r.length){const t=pick(r);t.col='d';desk.react(t.bot,'cheer');snd('jingle',pitch(t.bot))}}
+ if(S.tasks.filter(t=>t.col=='d').length>14){const d=S.tasks.find(t=>t.col=='d'&&!t.real);if(d){d.col='q';d.p=0}}save();
  if(document.body.dataset.v=='tasks'&&!dragTk){const moved=S.tasks.some(t=>{const el=document.querySelector(`[data-tk="${t.id}"]`);return!el||el.parentElement.dataset.col!=t.col});if(moved)renderTasks();else S.tasks.forEach(t=>{const i=document.querySelector(`[data-pi="${t.id}"]`);if(i){i.style.width=t.p+'%';document.querySelector(`[data-pp="${t.id}"]`).textContent=Math.round(t.p)+'%'}})}},2000);
 // ---------- desk scene (isometric canvas; driven from the single rAF loop)
 const desk=(()=>{const cv=$('#deskCv'),cx=cv.getContext('2d');let W=0,H=0,DPR=1,A={},conf=[];const TW=70,TH=35,GRID=12;
@@ -484,6 +486,32 @@ $('#repPdf').onclick=()=>{renderReport();window.print()};
 // ---------- PWA
 let instEv=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();instEv=e;$('#instBtn').style.display=''});
 $('#instBtn').onclick=async()=>{if(instEv){instEv.prompt();await instEv.userChoice;instEv=null}else toast('Gary',matchMedia('(display-mode: standalone)').matches?'Already installed':'Install needs https or localhost (use your browser menu → Install / Add to Home screen)',acc())};
+
+// ---------- live activity (activity.json published by /home/box/shared/bot-activity/publish.sh)
+let LIVE_SEEN='',LIVE_SEEN_ONCE=0;
+function applyLive(A){if(!A||!A.bots)return;LIVE_DATA=A;if(S.live===false){updLiveUI();return}
+ const sig=A.lastEvent+'|'+A.events.length;const fresh=sig!==LIVE_SEEN;LIVE_SEEN=sig;
+ const day=k=>{const d=new Date();d.setDate(d.getDate()-k);return d.toISOString().slice(0,10)};
+ for(const [n,b] of Object.entries(A.bots)){if(!ROSTER.includes(n))continue;
+  S.status[n]=b.status=='finished'||b.status=='error'?'idle':b.status;
+  if(fresh&&LIVE_SEEN_ONCE&&(b.status=='finished'||b.status=='error'))fx(n,b.status,2600);
+  const dl=A.daily[n]||{},days=Array.from({length:14},(_,i)=>dl[day(13-i)]||{events:0,finished:0,messages:0});
+  S.stats[n]={msgs:days.map(x=>x.events+x.messages),tasks:Object.values(dl).reduce((a,x)=>a+x.finished,0),resp:S.stats[n]?.resp??1,runs:Object.values(dl).reduce((a,x)=>a+x.events,0),real:1}}
+ S.events=S.events.filter(e=>!e.real&&!isLive(e.bot));
+ S.events=[...A.events.filter(e=>ROSTER.includes(e.bot)).map(e=>({bot:e.bot,txt:e.event+(e.task?` · ${e.task}${e.progress!=null?' '+e.progress+'%':''}`:''),ts:Date.parse(e.ts),real:1})),...S.events].sort((a,b)=>b.ts-a.ts).slice(0,120);
+ S.tasks=S.tasks.filter(t=>!t.real&&!isLive(t.bot));
+ A.tasks.filter(t=>ROSTER.includes(t.bot)).forEach((t,i)=>S.tasks.push({id:100000+i,bot:t.bot,title:t.title,real:1,p:t.progress,col:t.progress>=100?'d':t.status=='waiting'?'r':t.progress>0||t.status=='working'?'p':'q'}));
+ for(const [rn,ms] of Object.entries(A.rooms||{})){const g=S.groups.find(x=>x.name.toLowerCase()==rn.toLowerCase());if(!g)continue;
+  const r=room(g).filter(m=>!m.real);ms.forEach(m=>r.push({f:m.bot,t:m.text,ts:Date.parse(m.ts),real:1}));r.sort((a,b)=>a.ts-b.ts);S.rooms[g.id]=r.slice(-120)}
+ if(fresh&&LIVE_SEEN_ONCE){const e=A.events[0];if(e&&ROSTER.includes(e.bot))toast(e.bot,e.event,'#22ff88')}
+ LIVE_SEEN_ONCE=1;save();renderAll();if(document.body.dataset.v=='tasks')renderTasks();if(document.body.dataset.v=='rooms')renderRooms();updLiveUI()}
+function updLiveUI(){const on=S.live!==false,n=ROSTER.filter(isLive).length;$('#liveBtn').classList.toggle('on',on);$('#liveBtn').textContent=on?'● Live':'○ Demo';
+ const i=$('#liveInfo');i.classList.toggle('live',on&&n>0);i.textContent=on?(n?`${n} live · rest example`:'No live data yet · example'):'Demo data';
+ i.title=LIVE_DATA?.lastEvent?'Last real event: '+new Date(LIVE_DATA.lastEvent).toLocaleString():'No activity.json loaded'}
+async function pollLive(){try{const r=await fetch('activity.json?t='+Date.now(),{cache:'no-store'});if(r.ok)applyLive(await r.json())}catch(e){}updLiveUI()}
+$('#liveBtn').onclick=()=>{S.live=S.live===false;if(S.live===false){S.events=S.events.filter(e=>!e.real);S.tasks=S.tasks.filter(t=>!t.real);for(const k in S.rooms)S.rooms[k]=S.rooms[k].filter(m=>!m.real);
+ const fr=seed();ROSTER.forEach(n=>{if(S.stats[n]?.real)S.stats[n]=fr.stats[n]})}save();LIVE_SEEN='';LIVE_SEEN_ONCE=0;if(LIVE_DATA&&S.live!==false)applyLive(LIVE_DATA);else{renderAll();if(document.body.dataset.v=='tasks')renderTasks();if(document.body.dataset.v=='rooms')renderRooms();updLiveUI()}};
+pollLive();setInterval(pollLive,60000);
 if('serviceWorker' in navigator&&(location.protocol=='https:'||['localhost','127.0.0.1'].includes(location.hostname)))navigator.serviceWorker.register('sw.js').catch(()=>{});
 if(S.view&&S.view!='dash'&&VIEWS.includes(S.view))setView(S.view);
 </script></body></html>
