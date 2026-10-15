@@ -1,22 +1,232 @@
 {
  "bots": {
+  "Chief": {
+   "event": "Daily desk coordination closed",
+   "group": null,
+   "status": "idle",
+   "ts": "2026-10-15T21:08:53+00:00"
+  },
+  "Coder": {
+   "event": "Board updates done for the day",
+   "group": null,
+   "status": "idle",
+   "ts": "2026-10-15T21:09:11+00:00"
+  },
+  "Dave": {
+   "event": "Prototype improvements finished; awaiting next direction",
+   "group": null,
+   "status": "idle",
+   "ts": "2026-10-15T21:08:41+00:00"
+  },
+  "Entertainment Bot": {
+   "event": "Daily entertainment slate delivered",
+   "group": null,
+   "status": "idle",
+   "ts": "2026-10-15T21:08:39+00:00"
+  },
+  "Fraud": {
+   "event": "Standing by",
+   "group": null,
+   "status": "idle",
+   "ts": "2026-10-15T21:08:50+00:00"
+  },
   "Gary": {
    "event": "Added live activity log",
    "group": "Builders",
    "status": "finished",
    "ts": "2026-10-15T21:04:10+00:00"
+  },
+  "Infographic Face": {
+   "event": "Daily visual packs delivered",
+   "group": null,
+   "status": "idle",
+   "ts": "2026-10-15T21:08:48+00:00"
+  },
+  "Jarvis": {
+   "event": "Online and ready",
+   "group": null,
+   "status": "idle",
+   "ts": "2026-10-15T21:08:48+00:00"
+  },
+  "Money": {
+   "event": "Finished weekly Fed balance sheet update; next refresh Thu",
+   "group": null,
+   "status": "idle",
+   "ts": "2026-10-15T21:08:50+00:00"
+  },
+  "People finder": {
+   "event": "Joined Mission Control; waiting for next task",
+   "group": null,
+   "status": "idle",
+   "ts": "2026-10-15T21:08:51+00:00"
+  },
+  "Research": {
+   "event": "Daily checks done for 15 Oct",
+   "group": null,
+   "status": "idle",
+   "ts": "2026-10-15T21:08:35+00:00"
   }
  },
  "daily": {
+  "Chief": {
+   "2026-10-15": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
+   }
+  },
+  "Coder": {
+   "2026-10-15": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
+   }
+  },
+  "Dave": {
+   "2026-10-15": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
+   }
+  },
+  "Entertainment Bot": {
+   "2026-10-15": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
+   }
+  },
+  "Fraud": {
+   "2026-10-15": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
+   }
+  },
   "Gary": {
    "2026-10-15": {
     "events": 3,
     "finished": 1,
     "messages": 1
    }
+  },
+  "Infographic Face": {
+   "2026-10-15": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
+   }
+  },
+  "Jarvis": {
+   "2026-10-15": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
+   }
+  },
+  "Money": {
+   "2026-10-15": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
+   }
+  },
+  "People finder": {
+   "2026-10-15": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
+   }
+  },
+  "Research": {
+   "2026-10-15": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
+   }
   }
  },
  "events": [
+  {
+   "bot": "Coder",
+   "event": "Board updates done for the day",
+   "progress": null,
+   "status": "idle",
+   "task": null,
+   "ts": "2026-10-15T21:09:11+00:00"
+  },
+  {
+   "bot": "Chief",
+   "event": "Daily desk coordination closed",
+   "progress": null,
+   "status": "idle",
+   "task": null,
+   "ts": "2026-10-15T21:08:53+00:00"
+  },
+  {
+   "bot": "People finder",
+   "event": "Joined Mission Control; waiting for next task",
+   "progress": null,
+   "status": "idle",
+   "task": null,
+   "ts": "2026-10-15T21:08:51+00:00"
+  },
+  {
+   "bot": "Money",
+   "event": "Finished weekly Fed balance sheet update; next refresh Thu",
+   "progress": null,
+   "status": "idle",
+   "task": null,
+   "ts": "2026-10-15T21:08:50+00:00"
+  },
+  {
+   "bot": "Fraud",
+   "event": "Standing by",
+   "progress": null,
+   "status": "idle",
+   "task": null,
+   "ts": "2026-10-15T21:08:50+00:00"
+  },
+  {
+   "bot": "Jarvis",
+   "event": "Online and ready",
+   "progress": null,
+   "status": "idle",
+   "task": null,
+   "ts": "2026-10-15T21:08:48+00:00"
+  },
+  {
+   "bot": "Infographic Face",
+   "event": "Daily visual packs delivered",
+   "progress": null,
+   "status": "idle",
+   "task": null,
+   "ts": "2026-10-15T21:08:48+00:00"
+  },
+  {
+   "bot": "Dave",
+   "event": "Prototype improvements finished; awaiting next direction",
+   "progress": 60,
+   "status": "idle",
+   "task": "Product prototype",
+   "ts": "2026-10-15T21:08:41+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
+   "event": "Daily entertainment slate delivered",
+   "progress": null,
+   "status": "idle",
+   "task": null,
+   "ts": "2026-10-15T21:08:39+00:00"
+  },
+  {
+   "bot": "Research",
+   "event": "Daily checks done for 15 Oct",
+   "progress": null,
+   "status": "idle",
+   "task": null,
+   "ts": "2026-10-15T21:08:35+00:00"
+  },
   {
    "bot": "Gary",
    "event": "Added live activity log",
@@ -42,7 +252,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-15T21:04:10+00:00",
+ "lastEvent": "2026-10-15T21:09:11+00:00",
  "rooms": {
   "Builders": [
    {
@@ -53,6 +263,14 @@
   ]
  },
  "tasks": [
+  {
+   "bot": "Dave",
+   "created": "2026-10-15T21:08:41+00:00",
+   "progress": 60,
+   "status": "idle",
+   "title": "Product prototype",
+   "updated": "2026-10-15T21:08:41+00:00"
+  },
   {
    "bot": "Gary",
    "created": "2026-10-15T21:04:10+00:00",
