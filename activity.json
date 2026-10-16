@@ -19,10 +19,10 @@
    "ts": "2026-10-15T21:08:41+00:00"
   },
   "Entertainment Bot": {
-   "event": "Daily entertainment slate delivered",
+   "event": "Metal/Nordic folk research complete",
    "group": null,
-   "status": "idle",
-   "ts": "2026-10-15T21:08:39+00:00"
+   "status": "finished",
+   "ts": "2026-10-16T08:01:04+00:00"
   },
   "Fraud": {
    "event": "Standing by",
@@ -104,6 +104,11 @@
     "events": 1,
     "finished": 0,
     "messages": 0
+   },
+   "2026-10-16": {
+    "events": 8,
+    "finished": 3,
+    "messages": 0
    }
   },
   "Fraud": {
@@ -167,6 +172,70 @@
   }
  },
  "events": [
+  {
+   "bot": "Entertainment Bot",
+   "event": "Metal/Nordic folk research complete",
+   "progress": null,
+   "status": "finished",
+   "task": "weekly-entertainment-brief-music",
+   "ts": "2026-10-16T08:01:04+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
+   "event": "Games slate research complete",
+   "progress": null,
+   "status": "finished",
+   "task": "games-brief-2026-10-16",
+   "ts": "2026-10-16T08:01:03+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
+   "event": "UK entertainment brief research complete",
+   "progress": null,
+   "status": "finished",
+   "task": "weekly-brief-2026-10-16",
+   "ts": "2026-10-16T08:01:03+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
+   "event": "Compiling games slate findings",
+   "progress": 80,
+   "status": "working",
+   "task": "games-brief-2026-10-16",
+   "ts": "2026-10-16T08:00:55+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
+   "event": "Researching metal/Nordic folk slate",
+   "progress": null,
+   "status": "working",
+   "task": "weekly-entertainment-brief-music",
+   "ts": "2026-10-16T07:59:30+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
+   "event": "Researching game slate for weekly brief",
+   "progress": null,
+   "status": "working",
+   "task": "games-brief-2026-10-16",
+   "ts": "2026-10-16T07:59:20+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
+   "event": "Researching UK entertainment brief slate",
+   "progress": null,
+   "status": "working",
+   "task": "weekly-brief-2026-10-16",
+   "ts": "2026-10-16T07:59:15+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
+   "event": "Weekly Entertainment Brief research",
+   "progress": null,
+   "status": "working",
+   "task": "weekly-brief-2026-10-16",
+   "ts": "2026-10-16T07:59:02+00:00"
+  },
   {
    "bot": "Chief",
    "event": "Morning desk coordination closed",
@@ -344,7 +413,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-16T06:07:56+00:00",
+ "lastEvent": "2026-10-16T08:01:04+00:00",
  "rooms": {
   "Builders": [
    {
@@ -355,6 +424,30 @@
   ]
  },
  "tasks": [
+  {
+   "bot": "Entertainment Bot",
+   "created": "2026-10-16T07:59:30+00:00",
+   "progress": 100,
+   "status": "finished",
+   "title": "weekly-entertainment-brief-music",
+   "updated": "2026-10-16T08:01:04+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
+   "created": "2026-10-16T07:59:02+00:00",
+   "progress": 100,
+   "status": "finished",
+   "title": "weekly-brief-2026-10-16",
+   "updated": "2026-10-16T08:01:03+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
+   "created": "2026-10-16T07:59:20+00:00",
+   "progress": 100,
+   "status": "finished",
+   "title": "games-brief-2026-10-16",
+   "updated": "2026-10-16T08:01:03+00:00"
+  },
   {
    "bot": "Dave",
    "created": "2026-10-15T21:08:41+00:00",
