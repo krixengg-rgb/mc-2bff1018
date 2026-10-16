@@ -1,16 +1,16 @@
 {
  "bots": {
   "Chief": {
-   "event": "Daily desk coordination closed",
+   "event": "Morning desk coordination closed",
    "group": null,
-   "status": "idle",
-   "ts": "2026-10-15T21:08:53+00:00"
+   "status": "finished",
+   "ts": "2026-10-16T06:07:56+00:00"
   },
   "Coder": {
-   "event": "Board updates done for the day",
+   "event": "Board update done",
    "group": null,
-   "status": "idle",
-   "ts": "2026-10-15T21:09:11+00:00"
+   "status": "finished",
+   "ts": "2026-10-16T06:06:30+00:00"
   },
   "Dave": {
    "event": "Prototype improvements finished; awaiting next direction",
@@ -37,10 +37,10 @@
    "ts": "2026-10-15T21:04:10+00:00"
   },
   "Infographic Face": {
-   "event": "Daily visual packs delivered",
+   "event": "Daily one-pager delivered",
    "group": null,
-   "status": "idle",
-   "ts": "2026-10-15T21:08:48+00:00"
+   "status": "finished",
+   "ts": "2026-10-16T06:06:32+00:00"
   },
   "Jarvis": {
    "event": "Online and ready",
@@ -61,10 +61,10 @@
    "ts": "2026-10-15T21:08:51+00:00"
   },
   "Research": {
-   "event": "Daily checks done for 15 Oct",
+   "event": "Morning checks done",
    "group": null,
    "status": "idle",
-   "ts": "2026-10-15T21:08:35+00:00"
+   "ts": "2026-10-16T06:07:03+00:00"
   }
  },
  "daily": {
@@ -73,12 +73,22 @@
     "events": 1,
     "finished": 0,
     "messages": 0
+   },
+   "2026-10-16": {
+    "events": 1,
+    "finished": 1,
+    "messages": 0
    }
   },
   "Coder": {
    "2026-10-15": {
     "events": 1,
     "finished": 0,
+    "messages": 0
+   },
+   "2026-10-16": {
+    "events": 4,
+    "finished": 3,
     "messages": 0
    }
   },
@@ -115,6 +125,11 @@
     "events": 1,
     "finished": 0,
     "messages": 0
+   },
+   "2026-10-16": {
+    "events": 2,
+    "finished": 1,
+    "messages": 0
    }
   },
   "Jarvis": {
@@ -143,10 +158,87 @@
     "events": 1,
     "finished": 0,
     "messages": 0
+   },
+   "2026-10-16": {
+    "events": 2,
+    "finished": 0,
+    "messages": 0
    }
   }
  },
  "events": [
+  {
+   "bot": "Chief",
+   "event": "Morning desk coordination closed",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-16T06:07:56+00:00"
+  },
+  {
+   "bot": "Research",
+   "event": "Morning checks done",
+   "progress": null,
+   "status": "idle",
+   "task": null,
+   "ts": "2026-10-16T06:07:03+00:00"
+  },
+  {
+   "bot": "Infographic Face",
+   "event": "Daily one-pager delivered",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-16T06:06:32+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Board update done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-16T06:06:30+00:00"
+  },
+  {
+   "bot": "Infographic Face",
+   "event": "Rendering daily one-pager",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-16T06:05:49+00:00"
+  },
+  {
+   "bot": "Research",
+   "event": "Verifying morning line",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-16T06:04:34+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Posted daily board snapshot",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-16T06:04:14+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Daily snapshot ready for posting",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-16T06:03:56+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Running daily snapshot routine",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-16T06:02:51+00:00"
+  },
   {
    "bot": "Coder",
    "event": "Board updates done for the day",
@@ -252,7 +344,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-15T21:09:11+00:00",
+ "lastEvent": "2026-10-16T06:07:56+00:00",
  "rooms": {
   "Builders": [
    {
