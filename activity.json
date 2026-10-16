@@ -19,10 +19,10 @@
    "ts": "2026-10-15T21:08:41+00:00"
   },
   "Entertainment Bot": {
-   "event": "Metal/Nordic folk research complete",
+   "event": "Weekly Entertainment Brief ready",
    "group": null,
    "status": "finished",
-   "ts": "2026-10-16T08:01:04+00:00"
+   "ts": "2026-10-16T08:02:00+00:00"
   },
   "Fraud": {
    "event": "Standing by",
@@ -106,8 +106,8 @@
     "messages": 0
    },
    "2026-10-16": {
-    "events": 8,
-    "finished": 3,
+    "events": 10,
+    "finished": 4,
     "messages": 0
    }
   },
@@ -172,6 +172,22 @@
   }
  },
  "events": [
+  {
+   "bot": "Entertainment Bot",
+   "event": "Weekly Entertainment Brief ready",
+   "progress": null,
+   "status": "finished",
+   "task": "weekly-brief-2026-10-16",
+   "ts": "2026-10-16T08:02:00+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
+   "event": "Assembling weekly brief",
+   "progress": 80,
+   "status": "working",
+   "task": "weekly-brief-2026-10-16",
+   "ts": "2026-10-16T08:01:56+00:00"
+  },
   {
    "bot": "Entertainment Bot",
    "event": "Metal/Nordic folk research complete",
@@ -413,7 +429,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-16T08:01:04+00:00",
+ "lastEvent": "2026-10-16T08:02:00+00:00",
  "rooms": {
   "Builders": [
    {
@@ -426,19 +442,19 @@
  "tasks": [
   {
    "bot": "Entertainment Bot",
+   "created": "2026-10-16T07:59:02+00:00",
+   "progress": 100,
+   "status": "finished",
+   "title": "weekly-brief-2026-10-16",
+   "updated": "2026-10-16T08:02:00+00:00"
+  },
+  {
+   "bot": "Entertainment Bot",
    "created": "2026-10-16T07:59:30+00:00",
    "progress": 100,
    "status": "finished",
    "title": "weekly-entertainment-brief-music",
    "updated": "2026-10-16T08:01:04+00:00"
-  },
-  {
-   "bot": "Entertainment Bot",
-   "created": "2026-10-16T07:59:02+00:00",
-   "progress": 100,
-   "status": "finished",
-   "title": "weekly-brief-2026-10-16",
-   "updated": "2026-10-16T08:01:03+00:00"
   },
   {
    "bot": "Entertainment Bot",
