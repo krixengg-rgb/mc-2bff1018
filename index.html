@@ -55,6 +55,7 @@ body.rmotion *,body.rmotion *:before,body.rmotion *:after{animation-duration:.00
 .ppick{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px;max-height:55vh;overflow:auto}.pp{display:flex;gap:6px;align-items:center;padding:6px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:12px}.pp.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,transparent)}.pp input{display:none}.pp .av{width:22px;height:22px}
 .win .pc{min-height:0}
 @media(max-width:900px){#v-projects{flex-direction:column}#pSide{width:auto;max-height:none}.pcols{grid-template-columns:1fr}.ptray{display:none}.pmsg{max-width:95%}}
+#cloudBtn.on{border-color:#22ff88;color:#22ff88}.ptyping{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--mut);padding:2px 4px}.ptyping .av{width:18px;height:18px}
 .badge{font-size:10px;padding:3px 7px;border-radius:20px;border:1px solid var(--accent2);color:var(--accent2);text-transform:uppercase;letter-spacing:.8px;white-space:nowrap}
 .sp{flex:1}
 .btn{background:color-mix(in srgb,var(--accent) 10%,transparent);border:1px solid var(--line);border-radius:10px;padding:7px 11px;cursor:pointer;transition:.2s;white-space:nowrap}
@@ -721,7 +722,7 @@ function pForm(pr){pr=pr||{};return`<div class="pform"><label>Name<input class="
  <div class="chips" id="pfIc">${PICONS.map(i=>`<button type="button" class="btn" data-ic="${i}">${i}</button>`).join('')}</div></div>`}
 const pGet=w=>({name:w.querySelector('#pfN').value.trim().slice(0,60)||'Untitled project',desc:w.querySelector('#pfD').value.trim().slice(0,200),color:/^#[0-9a-f]{6}$/i.test(w.querySelector('#pfC').value)?w.querySelector('#pfC').value:'#00f0ff',icon:w.querySelector('#pfI').value.trim().slice(0,4)||'📁'});
 const pMount=w=>{w.querySelector('#pfIc').onclick=e=>{const b=e.target.closest('[data-ic]');if(b)w.querySelector('#pfI').value=b.dataset.ic};const n=w.querySelector('#pfN');setTimeout(()=>n.focus(),0)};
-async function pCreate(){const v=await dlg({title:'📁 New project',html:pForm(),ok:'Create',get:pGet,onMount:pMount});if(!v)return;const pr={id:'p'+Date.now().toString(36),...v,bots:[],archived:false,created:Date.now()};S.projects.push(pr);PSEL=S.psel=pr.id;save();renderProjects();toast('Gary',`${pr.icon} Project "${pr.name}" created`,pr.color);return pr}
+async function pCreate(){const v=await dlg({title:'📁 New project',html:pForm(),ok:'Create',get:pGet,onMount:pMount});if(!v)return;const pr={id:(window.CLOUD?.on&&crypto.randomUUID?crypto.randomUUID():'p'+Date.now().toString(36)),...v,bots:[],archived:false,created:Date.now()};S.projects.push(pr);PSEL=S.psel=pr.id;save();renderProjects();toast('Gary',`${pr.icon} Project "${pr.name}" created`,pr.color);return pr}
 async function pEdit(id){const pr=pById(id);const v=await dlg({title:'✏️ Edit project',html:pForm(pr),ok:'Save',get:pGet,onMount:pMount});if(!v)return;Object.assign(pr,v);save();renderProjects();renderChats()}
 async function pDelete(id){const pr=pById(id);if(!await dlg({title:'Delete project?',msg:`Delete "${pr.name}" and its chat history on this device? This can't be undone.`,ok:'Delete',danger:1}))return;S.projects=S.projects.filter(x=>x!==pr);S.chats.forEach(c=>{c.tabs=c.tabs.filter(t=>t!='proj:'+id);c.a=Math.max(0,Math.min(c.a,c.tabs.length-1))});S.chats=S.chats.filter(c=>c.tabs.length);if(PSEL==id)PSEL=S.psel=null;save();await pDelAll(id);renderProjects();renderChats()}
 function pArchive(id){const pr=pById(id);pr.archived=!pr.archived;save();renderProjects();toast('Gary',`${pr.icon} "${pr.name}" ${pr.archived?'archived':'restored'}`,pr.color)}
@@ -751,7 +752,7 @@ function projPane(id){return`<div class="pc" data-pc="${id}"><div class="pcmsgs"
 async function hydrateProj(root){const panes=[...(root||document).querySelectorAll('.pc[data-pc]')];for(const el of panes){const id=el.dataset.pc,pr=pById(id);if(!pr)continue;let ms=[];try{ms=await pMsgs(id)}catch(e){}
  (PURL[id]||[]).forEach(u=>URL.revokeObjectURL(u));PURL[id]=[];const url=b=>{const u=URL.createObjectURL(b);PURL[id].push(u);return u};
  const all=[...ms.map(m=>({...m,local:1})),...pLogged(id)].sort((a,b)=>a.ts-b.ts);const box=el.querySelector('.pcmsgs');
- box.innerHTML=all.length?all.map(m=>{const me=m.f=='u';return`<div class="pmsg ${me?'u':''}">${me?'':av(m.f,S.status[m.f])}<div class="pb2" style="${me?'':`--bc2:${bc(m.f)}`}"><small>${me?'You':esc(m.f)}${m.logged?' · logged':''} · ${new Date(m.ts).toLocaleString([],{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})}</small>${m.t?`<div>${mentionHtml(m.t,pr)}</div>`:''}${(m.files||[]).map(f=>f.type.startsWith('image/')?`<img class="pthumb" src="${url(f.blob)}" alt="${esc(f.name)}" title="${esc(f.name)} · ${fsz(f.size)}">`:`<a class="pchip" href="${url(f.blob)}" download="${esc(f.name)}">📄 <span>${esc(f.name)}</span><small>${fsz(f.size)}</small> ⬇</a>`).join('')}</div></div>`}).join(''):'<div class="empty2">No messages yet. Say hi, @mention a member, or drop a file.</div>';
+ box.innerHTML=all.length?all.map(m=>{const me=m.f=='u';return`<div class="pmsg ${me?'u':''}">${me?'':av(m.f,S.status[m.f])}<div class="pb2" style="${me?'':`--bc2:${bc(m.f)}`}"><small>${me?'You':esc(m.f)}${m.logged?' · logged':''} · ${new Date(m.ts).toLocaleString([],{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})}</small>${m.t?`<div>${mentionHtml(m.t,pr)}</div>`:''}${(m.files||[]).map(f=>f.type.startsWith('image/')?`<img class="pthumb" src="${f.url||url(f.blob)}" alt="${esc(f.name)}" title="${esc(f.name)} · ${fsz(f.size)}">`:`<a class="pchip" href="${f.url||url(f.blob)}" download="${esc(f.name)}">📄 <span>${esc(f.name)}</span><small>${fsz(f.size)}</small> ⬇</a>`).join('')}</div></div>`}).join(''):'<div class="empty2">No messages yet. Say hi, @mention a member, or drop a file.</div>';
  box.scrollTop=box.scrollHeight;renderPend(el)}}
 window.hydrateProj=hydrateProj;
 function renderPend(el){const id=el.dataset.pc,P=PEND[id]||[];el.querySelector('.pcpend').innerHTML=P.map((f,i)=>`<span class="pchip">${f.type.startsWith('image/')?'🖼':'📄'} <span>${esc(f.name)}</span><small>${fsz(f.size)}</small><button type="button" class="ib" data-unp="${i}" aria-label="Remove attachment">×</button></span>`).join('')}
@@ -759,7 +760,7 @@ const MAXF=25*1024*1024;
 function pAttach(id,files){const ok=[],bad=[];[...files].forEach(f=>(f.size>MAXF?bad:ok).push(f));PEND[id]=[...(PEND[id]||[]),...ok];document.querySelectorAll(`.pc[data-pc="${id}"]`).forEach(renderPend);
  if(bad.length)dlg({title:'File too large',msg:`${bad.map(f=>`${f.name} (${fsz(f.size)})`).join(', ')} ${bad.length>1?'are':'is'} over the 25 MB limit per file, so ${bad.length>1?'they were':'it was'} not attached.`,cancel:false})}
 async function pSend(id,input){const t=input.value.trim(),files=PEND[id]||[];if(!t&&!files.length)return;const pr=pById(id);
- try{await pAdd({p:id,f:'u',t,ts:Date.now(),files:files.map(f=>({name:f.name||'pasted-file',type:f.type||'application/octet-stream',size:f.size,blob:f}))})}catch(e){dlg({title:"Couldn't save message",msg:'This device ran out of storage space or blocked saving ('+(e?.name||'error')+'). Try a smaller file or free up space.',cancel:false});return}
+ try{await pAdd({p:id,f:'u',t,ts:Date.now(),files:files.map(f=>({name:f.name||'pasted-file',type:f.type||'application/octet-stream',size:f.size,blob:f}))})}catch(e){if(window.CLOUD?.on&&isUuid(id)){dlg({title:"Couldn't send message",msg:(e?.message||String(e))+'. Your text is still in the box; try again.',cancel:false});return}dlg({title:"Couldn't save message",msg:'This device ran out of storage space or blocked saving ('+(e?.name||'error')+'). Try a smaller file or free up space.',cancel:false});return}
  input.value='';PEND[id]=[];pr.lastMsg=Date.now();save();snd('blip',500);document.querySelectorAll(`.pc[data-pc="${id}"]`).forEach(el=>hydrateProj(el.parentElement));renderSideProjects()}
 // ---- mention autocomplete
 function mnUpdate(inp){const pc=inp.closest('.pc'),pr=pById(pc.dataset.pc),box=pc.querySelector('.pmn'),pre=inp.value.slice(0,inp.selectionStart),m=pre.match(/@([\w ]{0,20})$/);
@@ -793,6 +794,66 @@ document.addEventListener('dragstart',e=>{const t=e.target.closest?.('[data-tray
 $('#lb').insertAdjacentHTML('afterend','<h3 style="margin-top:14px">📁 Projects</h3><div id="sideProj"></div>');
 setInterval(()=>{if(document.body.dataset.v=='projects'){const pr=pById(PSEL);if(pr){renderPTL(pr);document.querySelectorAll('#pWork .pc').forEach(el=>{if(pLogged(pr.id).length!==+el.dataset.lc){el.dataset.lc=pLogged(pr.id).length;hydrateProj(el.parentElement)}})}}renderSideProjects()},60000);
 renderProjects();if(document.body.dataset.v=='projects')renderProjects();
+// ================= v10: Supabase cloud sync for projects & chats (falls back to local when signed out) =================
+if(S.projectsLocal){S.projects=S.projectsLocal;delete S.projectsLocal;save()}
+var CLOUD={on:false,sb:null,user:null,snap:{},urls:{},ch:null,ready:false};
+const SB_URL='https://pkhoiiydmkozpifmlafv.supabase.co',SB_KEY='sb_publishable_PR_FvhwUy0yWu6FVSJ43ag_9mc1_uYe',SB_REDIRECT=location.origin+location.pathname;
+const toCloud=p=>({id:p.id,name:p.name,description:p.desc||'',colour:p.color,icon:p.icon,members:p.bots,archived:!!p.archived});
+const fromCloud=r=>({id:r.id,name:r.name,desc:r.description||'',color:r.colour||'#00f0ff',icon:r.icon||'📁',bots:r.members||[],archived:!!r.archived,created:Date.parse(r.created_at),cloud:1});
+const isUuid=s=>/^[0-9a-f-]{36}$/i.test(s||'');
+function cloudUI(){const b=$('#cloudBtn');if(!b)return;b.textContent=CLOUD.on?'☁ Synced':'☁ Sign in';b.title=CLOUD.on?`Signed in as ${CLOUD.user.email}. Projects & chats sync via Supabase.`:'Sign in to sync projects & chats (Supabase)';b.classList.toggle('on',CLOUD.on)}
+function loadSdk(){return new Promise((res,rej)=>{if(window.supabase?.createClient)return res();const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';s.onload=res;s.onerror=()=>rej(new Error('Supabase SDK failed to load'));document.head.appendChild(s)})}
+async function cloudInit(){try{await loadSdk()}catch(e){console.warn(e.message);return}
+ CLOUD.sb=supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});CLOUD.ready=true;
+ CLOUD.sb.auth.onAuthStateChange((ev,ses)=>{const u=ses?.user||null;if(u&&(!CLOUD.user||CLOUD.user.id!==u.id)){CLOUD.user=u;cloudOn()}else if(!u&&CLOUD.on){cloudOff()}});
+ const {data}=await CLOUD.sb.auth.getSession();if(data?.session?.user&&!CLOUD.on){CLOUD.user=data.session.user;cloudOn()}cloudUI()}
+async function cloudOn(){if(CLOUD.on)return;if(!S.projectsLocal)S.projectsLocal=S.projects.filter(p=>!p.cloud);CLOUD.on=true;cloudUI();
+ try{await cloudFetchProjects();await cloudMigrate()}catch(e){toast('Gary','Cloud sync problem: '+(e.message||e)+'. Has the SQL setup been run?','#ff3b5c');console.warn(e)}
+ CLOUD.ch?.unsubscribe?.();CLOUD.ch=CLOUD.sb.channel('mc-'+CLOUD.user.id).on('postgres_changes',{event:'*',schema:'public',table:'messages'},pl=>{const r=pl.new&&pl.new.project_id?pl.new:pl.old;if(!r)return;document.querySelectorAll(`.pc[data-pc="${r.project_id}"]`).forEach(el=>hydrateProj(el.parentElement));
+   if(pl.eventType=='INSERT'&&pl.new.sender_type=='bot'){const pr=pById(r.project_id);toast(pl.new.sender_name,`💬 ${pr?pr.icon+' '+pr.name+': ':''}${(pl.new.body||'').slice(0,80)}`,pr?.color||'#22ff88')}})
+  .on('postgres_changes',{event:'*',schema:'public',table:'projects'},()=>cloudFetchProjects().catch(()=>{})).subscribe();
+ toast('Gary',`☁ Signed in as ${CLOUD.user.email}. Projects now sync.`,'#22ff88')}
+function cloudOff(){CLOUD.ch?.unsubscribe?.();CLOUD.ch=null;CLOUD.on=false;CLOUD.user=null;CLOUD.snap={};S.projects=S.projectsLocal||[];delete S.projectsLocal;PSEL=S.psel=S.projects[0]?.id||null;save();renderProjects();renderChats();cloudUI();toast('Gary','Signed out. Projects are back in local mode.','#ffb020')}
+async function cloudFetchProjects(){const {data,error}=await CLOUD.sb.from('projects').select('*').order('created_at');if(error)throw error;S.projects=data.map(fromCloud);CLOUD.snap=Object.fromEntries(data.map(r=>[r.id,JSON.stringify(toCloud(fromCloud(r)))]));save();CLOUD.syncing=true;renderProjects();CLOUD.syncing=false;renderChats()}
+var _syncT=null;function cloudSyncSoon(){clearTimeout(_syncT);_syncT=setTimeout(cloudSync,300)}
+async function cloudSync(){if(!CLOUD.on)return;const ids=new Set(S.projects.map(p=>p.id));
+ for(const p of S.projects){if(!isUuid(p.id)){const old=p.id;p.id=crypto.randomUUID();if(PSEL==old)PSEL=S.psel=p.id}const j=JSON.stringify(toCloud(p));if(CLOUD.snap[p.id]===j)continue;
+  const q=CLOUD.snap[p.id]?CLOUD.sb.from('projects').update(toCloud(p)).eq('id',p.id):CLOUD.sb.from('projects').insert(toCloud(p));const {error}=await q;if(error){toast('Gary','Cloud save failed: '+error.message,'#ff3b5c');continue}CLOUD.snap[p.id]=j;p.cloud=1}
+ for(const id of Object.keys(CLOUD.snap))if(!ids.has(id)){const {error}=await CLOUD.sb.from('projects').delete().eq('id',id);if(!error){delete CLOUD.snap[id];cloudRmFolder(id)}}save()}
+async function cloudRmFolder(id){try{const {data}=await CLOUD.sb.storage.from('chat-files').list(id,{limit:1000});if(data?.length)await CLOUD.sb.storage.from('chat-files').remove(data.map(f=>id+'/'+f.name))}catch(e){}}
+async function cloudMigrate(){const key='mig_'+CLOUD.user.id;const loc=(S.projectsLocal||[]).filter(p=>!p.cloud);if(S[key]||!loc.length){S[key]=1;save();return}
+ const ok=await dlg({title:'☁ Copy local projects to the cloud?',msg:`You have ${loc.length} project${loc.length>1?'s':''} saved on this device. Copy ${loc.length>1?'them':'it'} (with chat history and files) to your account so ${loc.length>1?'they sync':'it syncs'} everywhere?`,ok:'Copy to cloud',cancel:'Not now'});if(!ok)return;
+ let n=0;for(const p of loc){const id=crypto.randomUUID();const {error}=await CLOUD.sb.from('projects').insert({...toCloud(p),id});if(error){toast('Gary','Migration failed: '+error.message,'#ff3b5c');return}
+  const ms=await _pMsgsLocal(p.id).catch(()=>[]);for(const m of ms){const att=await cloudUpload(id,(m.files||[]).map(f=>f.blob instanceof Blob?new File([f.blob],f.name,{type:f.type}):null).filter(Boolean));await CLOUD.sb.from('messages').insert({project_id:id,sender_type:'user',sender_name:myName(),body:m.t||'',attachments:att,mentions:mentionsOf(m.t,p),created_at:new Date(m.ts).toISOString(),handled_at:new Date().toISOString()})}n++}
+ S[key]=1;save();await cloudFetchProjects();toast('Gary',`☁ Copied ${n} project${n>1?'s':''} to the cloud. Local copies are kept for signed-out mode.`,'#22ff88')}
+const myName=()=>S.myName||(CLOUD.user?.email||'Krixen').split('@')[0];
+function mentionsOf(t,pr){return(pr?.bots?.length?pr.bots:ROSTER).filter(b=>(t||'').includes('@'+b))}
+async function cloudUpload(pid,files){const out=[];for(const f of files){const path=`${pid}/${crypto.randomUUID().slice(0,8)}-${(f.name||'file').replace(/[^\w.\-]+/g,'_').slice(-80)}`;const {error}=await CLOUD.sb.storage.from('chat-files').upload(path,f,{contentType:f.type||'application/octet-stream',upsert:false});if(error)throw new Error(`Upload of ${f.name} failed: ${error.message}`);out.push({path,name:f.name||'file',type:f.type||'application/octet-stream',size:f.size})}return out}
+async function signUrls(paths){const need=paths.filter(p=>!CLOUD.urls[p]||CLOUD.urls[p].exp<Date.now());if(need.length){const {data}=await CLOUD.sb.storage.from('chat-files').createSignedUrls(need,3600);(data||[]).forEach(d=>{if(d.signedUrl)CLOUD.urls[d.path]={u:d.signedUrl,exp:Date.now()+3000e3}})}return Object.fromEntries(paths.map(p=>[p,CLOUD.urls[p]?.u]))}
+// --- swap storage backend for project chats
+var _pMsgsLocal=pMsgs,_pAddLocal=pAdd,_pDelAllLocal=pDelAll;
+pMsgs=async function(p){if(!CLOUD.on||!isUuid(p))return _pMsgsLocal(p);const {data,error}=await CLOUD.sb.from('messages').select('*').eq('project_id',p).order('created_at').limit(500);if(error)throw error;
+ const urls=await signUrls(data.flatMap(m=>(m.attachments||[]).map(a=>a.path)).filter(Boolean));
+ return data.map(m=>({f:m.sender_type=='user'?'u':m.sender_name,t:m.body,ts:Date.parse(m.created_at),files:(m.attachments||[]).map(a=>({...a,url:urls[a.path]})),cloud:1,pending:m.sender_type=='user'&&!m.handled_at,fwd:!!m.forwarded_at,mentions:m.mentions||[]}))};
+pAdd=async function(m){if(!CLOUD.on||!isUuid(m.p))return _pAddLocal(m);const pr=pById(m.p);const att=await cloudUpload(m.p,m.files.map(f=>f.blob));const {error}=await CLOUD.sb.from('messages').insert({project_id:m.p,sender_type:'user',sender_name:myName(),body:m.t,attachments:att,mentions:mentionsOf(m.t,pr)});if(error)throw error};
+pDelAll=async function(p){if(CLOUD.on&&isUuid(p))return;return _pDelAllLocal(p)};
+var _renderProjects=renderProjects;renderProjects=function(){_renderProjects();if(CLOUD.on&&!CLOUD.syncing)cloudSyncSoon()};
+// pending / "bot is replying" indicator + cloud note, applied after each hydrate
+var _hydrate=hydrateProj;hydrateProj=async function(root){await _hydrate(root);if(!CLOUD.on)return;for(const el of (root||document).querySelectorAll('.pc[data-pc]')){const id=el.dataset.pc;if(!isUuid(id))continue;const pr=pById(id);
+ el.querySelector('.pcnote').innerHTML=`☁ Synced to your Supabase account as <b>${esc(myName())}</b>. Member bots read this via the <code>chat</code> CLI and reply here.`;
+ let ms=[];try{ms=await pMsgs(id)}catch(e){}const pend=ms.filter(m=>m.pending&&Date.now()-m.ts<864e5);const box=el.querySelector('.pcmsgs');box.querySelector('.ptyping')?.remove();
+ if(pend.length){const who=[...new Set(pend.flatMap(m=>(m.mentions.length?m.mentions:pr?.bots||[])))];const fwd=pend.some(m=>m.fwd);box.insertAdjacentHTML('beforeend',`<div class="ptyping">${who.slice(0,3).map(b=>av(b,'working')).join('')}<span>${who.length?esc(who.join(', ')):'Bots'} ${fwd?'got your message and will reply':'will see this when they next check in'}</span><span class="m b typing" style="padding:2px 6px"><span></span><span></span><span></span></span></div>`);box.scrollTop=box.scrollHeight}}};
+window.hydrateProj=hydrateProj;
+// --- sign-in UI
+async function cloudSignIn(){if(!CLOUD.ready){await cloudInit();if(!CLOUD.ready)return dlg({title:'Cloud unavailable',msg:"Couldn't load the Supabase library. Check your connection and try again.",cancel:false})}
+ if(CLOUD.on){const out=await dlg({title:'☁ Cloud sync',msg:`Signed in as ${CLOUD.user.email}.\nProjects and chats sync through Supabase. Bots can read and reply.`,ok:'Sign out',cancel:'Close',danger:1});if(out)await CLOUD.sb.auth.signOut();return}
+ const email=await dlg({title:'☁ Sign in to sync projects',msg:"Enter your email. You'll get a sign-in link (and a 6-digit code if your email template includes it).",input:S.lastEmail||'',ok:'Send link'});if(!email)return;
+ if(!/^\S+@\S+\.\S+$/.test(email))return dlg({title:'Check the email',msg:'That doesn’t look like an email address.',cancel:false});S.lastEmail=email;save();
+ const {error}=await CLOUD.sb.auth.signInWithOtp({email,options:{emailRedirectTo:SB_REDIRECT,shouldCreateUser:true}});if(error)return dlg({title:"Couldn't send the email",msg:error.message,cancel:false});
+ const code=await dlg({title:'📬 Check your inbox',msg:`We sent a sign-in link to ${email}. Open it on this device, or type the 6-digit code here.`,input:'',ok:'Verify code',cancel:'I’ll use the link'});if(!code)return;
+ const r=await CLOUD.sb.auth.verifyOtp({email,token:code.replace(/\s/g,''),type:'email'});if(r.error)dlg({title:'Code not accepted',msg:r.error.message,cancel:false})}
+$('#setBtn').insertAdjacentHTML('beforebegin','<button class="btn" id="cloudBtn" title="Sign in to sync projects & chats">☁ Sign in</button>');$('#cloudBtn').onclick=cloudSignIn;cloudUI();
+cloudInit();
 if('serviceWorker' in navigator&&(location.protocol=='https:'||['localhost','127.0.0.1'].includes(location.hostname)))navigator.serviceWorker.register('sw.js').catch(()=>{});
 if(S.view&&S.view!='dash'&&VIEWS.includes(S.view))setView(S.view);
 </script></body></html>
