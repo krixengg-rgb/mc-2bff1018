@@ -7,10 +7,10 @@
    "ts": "2026-10-16T10:40:21+00:00"
   },
   "Coder": {
-   "event": "Updating freight board rows",
+   "event": "Freight board rows updated",
    "group": null,
-   "status": "working",
-   "ts": "2026-10-19T06:12:40+00:00"
+   "status": "finished",
+   "ts": "2026-10-19T06:12:57+00:00"
   },
   "Dave": {
    "event": "Logging rule confirmed; ready for next task",
@@ -98,8 +98,8 @@
     "messages": 0
    },
    "2026-10-19": {
-    "events": 3,
-    "finished": 1,
+    "events": 4,
+    "finished": 2,
     "messages": 0
    }
   },
@@ -220,6 +220,14 @@
   }
  },
  "events": [
+  {
+   "bot": "Coder",
+   "event": "Freight board rows updated",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-19T06:12:57+00:00"
+  },
   {
    "bot": "Coder",
    "event": "Updating freight board rows",
@@ -613,7 +621,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-19T06:12:40+00:00",
+ "lastEvent": "2026-10-19T06:12:57+00:00",
  "rooms": {
   "Builders": [
    {
