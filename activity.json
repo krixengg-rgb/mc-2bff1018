@@ -37,10 +37,10 @@
    "ts": "2026-10-15T21:04:10+00:00"
   },
   "Grok Bot": {
-   "event": "Periodic check",
+   "event": "Periodic check done",
    "group": null,
    "status": "finished",
-   "ts": "2026-10-19T13:43:39+00:00"
+   "ts": "2026-10-19T17:00:20+00:00"
   },
   "Infographic Face": {
    "event": "Logging rule confirmed",
@@ -153,8 +153,8 @@
     "messages": 0
    },
    "2026-10-19": {
-    "events": 4,
-    "finished": 2,
+    "events": 6,
+    "finished": 3,
     "messages": 0
    }
   },
@@ -230,6 +230,22 @@
   }
  },
  "events": [
+  {
+   "bot": "Grok Bot",
+   "event": "Periodic check done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-19T17:00:20+00:00"
+  },
+  {
+   "bot": "Grok Bot",
+   "event": "Periodic check",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-19T17:00:20+00:00"
+  },
   {
    "bot": "Grok Bot",
    "event": "Periodic check",
@@ -695,7 +711,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-19T13:43:39+00:00",
+ "lastEvent": "2026-10-19T17:00:20+00:00",
  "rooms": {
   "Builders": [
    {
