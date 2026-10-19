@@ -55,10 +55,10 @@
    "ts": "2026-10-16T10:40:09+00:00"
   },
   "Money": {
-   "event": "Daily brief strip delivered",
+   "event": "Weekly brief ready",
    "group": null,
    "status": "finished",
-   "ts": "2026-10-16T10:40:07+00:00"
+   "ts": "2026-10-19T07:30:33+00:00"
   },
   "People finder": {
    "event": "Auto-logging rule saved; no active task",
@@ -187,6 +187,11 @@
     "events": 1,
     "finished": 1,
     "messages": 0
+   },
+   "2026-10-19": {
+    "events": 2,
+    "finished": 1,
+    "messages": 0
    }
   },
   "People finder": {
@@ -220,6 +225,22 @@
   }
  },
  "events": [
+  {
+   "bot": "Money",
+   "event": "Weekly brief ready",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-19T07:30:33+00:00"
+  },
+  {
+   "bot": "Money",
+   "event": "Weekly brief started",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-19T07:28:41+00:00"
+  },
   {
    "bot": "Coder",
    "event": "Freight board rows updated",
@@ -621,7 +642,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-19T06:12:57+00:00",
+ "lastEvent": "2026-10-19T07:30:33+00:00",
  "rooms": {
   "Builders": [
    {
