@@ -37,10 +37,10 @@
    "ts": "2026-10-15T21:04:10+00:00"
   },
   "Grok Bot": {
-   "event": "Routine check done",
+   "event": "Routine check-in done",
    "group": null,
    "status": "finished",
-   "ts": "2026-10-18T17:28:26+00:00"
+   "ts": "2026-10-19T11:15:17+00:00"
   },
   "Infographic Face": {
    "event": "Logging rule confirmed",
@@ -151,6 +151,11 @@
     "events": 3,
     "finished": 2,
     "messages": 0
+   },
+   "2026-10-19": {
+    "events": 2,
+    "finished": 1,
+    "messages": 0
    }
   },
   "Infographic Face": {
@@ -225,6 +230,22 @@
   }
  },
  "events": [
+  {
+   "bot": "Grok Bot",
+   "event": "Routine check-in done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-19T11:15:17+00:00"
+  },
+  {
+   "bot": "Grok Bot",
+   "event": "Routine check-in",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-19T11:15:07+00:00"
+  },
   {
    "bot": "Money",
    "event": "Weekly brief delivered",
@@ -658,7 +679,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-19T07:31:56+00:00",
+ "lastEvent": "2026-10-19T11:15:17+00:00",
  "rooms": {
   "Builders": [
    {
