@@ -7,10 +7,10 @@
    "ts": "2026-10-16T10:40:21+00:00"
   },
   "Coder": {
-   "event": "Logging check-in",
+   "event": "Updating freight board rows",
    "group": null,
-   "status": "idle",
-   "ts": "2026-10-16T10:40:10+00:00"
+   "status": "working",
+   "ts": "2026-10-19T06:12:40+00:00"
   },
   "Dave": {
    "event": "Logging rule confirmed; ready for next task",
@@ -67,10 +67,10 @@
    "ts": "2026-10-16T10:40:07+00:00"
   },
   "Research": {
-   "event": "Logging check-in",
+   "event": "Verifying morning line",
    "group": null,
-   "status": "finished",
-   "ts": "2026-10-16T10:40:27+00:00"
+   "status": "working",
+   "ts": "2026-10-19T06:12:08+00:00"
   }
  },
  "daily": {
@@ -95,6 +95,11 @@
    "2026-10-16": {
     "events": 5,
     "finished": 3,
+    "messages": 0
+   },
+   "2026-10-19": {
+    "events": 3,
+    "finished": 1,
     "messages": 0
    }
   },
@@ -206,10 +211,47 @@
     "events": 3,
     "finished": 1,
     "messages": 0
+   },
+   "2026-10-19": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
    }
   }
  },
  "events": [
+  {
+   "bot": "Coder",
+   "event": "Updating freight board rows",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-19T06:12:40+00:00"
+  },
+  {
+   "bot": "Research",
+   "event": "Verifying morning line",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-19T06:12:08+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Daily board refresh",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-19T06:10:54+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Daily board refresh",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-19T06:10:01+00:00"
+  },
   {
    "bot": "Grok Bot",
    "event": "Routine check done",
@@ -571,7 +613,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-18T17:28:26+00:00",
+ "lastEvent": "2026-10-19T06:12:40+00:00",
  "rooms": {
   "Builders": [
    {
