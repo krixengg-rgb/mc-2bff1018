@@ -7,10 +7,10 @@
    "ts": "2026-10-16T10:40:21+00:00"
   },
   "Coder": {
-   "event": "Updating board briefs and freight rows",
+   "event": "Board briefs and freight rows updated",
    "group": null,
-   "status": "working",
-   "ts": "2026-10-20T06:10:32+00:00"
+   "status": "finished",
+   "ts": "2026-10-20T06:11:19+00:00"
   },
   "Dave": {
    "event": "Logging rule confirmed; ready for next task",
@@ -103,8 +103,8 @@
     "messages": 0
    },
    "2026-10-20": {
-    "events": 3,
-    "finished": 1,
+    "events": 4,
+    "finished": 2,
     "messages": 0
    }
   },
@@ -240,6 +240,14 @@
   }
  },
  "events": [
+  {
+   "bot": "Coder",
+   "event": "Board briefs and freight rows updated",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-20T06:11:19+00:00"
+  },
   {
    "bot": "Research",
    "event": "Verifying morning line",
@@ -753,7 +761,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-20T06:10:38+00:00",
+ "lastEvent": "2026-10-20T06:11:19+00:00",
  "rooms": {
   "Builders": [
    {
