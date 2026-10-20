@@ -975,6 +975,40 @@
      "working": 1
     }
    },
+   "Infographic Face": {
+    "events": 1,
+    "finished": 0,
+    "hours": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "messages": 0,
+    "status": {
+     "idle": 1
+    }
+   },
    "Research": {
     "events": 1,
     "finished": 0,

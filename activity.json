@@ -43,10 +43,10 @@
    "ts": "2026-10-20T06:53:51+00:00"
   },
   "Infographic Face": {
-   "event": "Logging rule confirmed",
+   "event": "Scheduled reports paused",
    "group": null,
-   "status": "finished",
-   "ts": "2026-10-16T10:40:12+00:00"
+   "status": "idle",
+   "ts": "2026-10-20T08:21:22+00:00"
   },
   "Jarvis": {
    "event": "Logging check-in",
@@ -178,6 +178,11 @@
     "events": 3,
     "finished": 2,
     "messages": 0
+   },
+   "2026-10-20": {
+    "events": 1,
+    "finished": 0,
+    "messages": 0
    }
   },
   "Jarvis": {
@@ -245,6 +250,14 @@
   }
  },
  "events": [
+  {
+   "bot": "Infographic Face",
+   "event": "Scheduled reports paused",
+   "progress": null,
+   "status": "idle",
+   "task": null,
+   "ts": "2026-10-20T08:21:22+00:00"
+  },
   {
    "bot": "Grok Bot",
    "event": "Routine check done",
@@ -782,7 +795,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-20T06:53:51+00:00",
+ "lastEvent": "2026-10-20T08:21:22+00:00",
  "rooms": {
   "Builders": [
    {
