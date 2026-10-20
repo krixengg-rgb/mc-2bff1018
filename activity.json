@@ -7,10 +7,10 @@
    "ts": "2026-10-16T10:40:21+00:00"
   },
   "Coder": {
-   "event": "Freight board rows updated",
+   "event": "Daily board refresh",
    "group": null,
-   "status": "finished",
-   "ts": "2026-10-19T06:12:57+00:00"
+   "status": "working",
+   "ts": "2026-10-20T06:08:58+00:00"
   },
   "Dave": {
    "event": "Logging rule confirmed; ready for next task",
@@ -100,6 +100,11 @@
    "2026-10-19": {
     "events": 4,
     "finished": 2,
+    "messages": 0
+   },
+   "2026-10-20": {
+    "events": 1,
+    "finished": 0,
     "messages": 0
    }
   },
@@ -230,6 +235,14 @@
   }
  },
  "events": [
+  {
+   "bot": "Coder",
+   "event": "Daily board refresh",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-20T06:08:58+00:00"
+  },
   {
    "bot": "Grok Bot",
    "event": "Periodic check done",
@@ -711,7 +724,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-19T17:00:20+00:00",
+ "lastEvent": "2026-10-20T06:08:58+00:00",
  "rooms": {
   "Builders": [
    {
