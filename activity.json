@@ -7,10 +7,10 @@
    "ts": "2026-10-16T10:40:21+00:00"
   },
   "Coder": {
-   "event": "Checker admin feature build done",
+   "event": "Checker share flags done",
    "group": null,
    "status": "finished",
-   "ts": "2026-10-21T10:43:45+00:00"
+   "ts": "2026-10-21T10:58:58+00:00"
   },
   "Dave": {
    "event": "Logging rule confirmed; ready for next task",
@@ -108,8 +108,8 @@
     "messages": 0
    },
    "2026-10-21": {
-    "events": 14,
-    "finished": 8,
+    "events": 22,
+    "finished": 13,
     "messages": 0
    }
   },
@@ -270,6 +270,70 @@
   }
  },
  "events": [
+  {
+   "bot": "Coder",
+   "event": "Checker share flags done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T10:58:58+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker share flags",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-21T10:58:11+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker share feature done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T10:56:59+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker share feature",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-21T10:55:02+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker database groundwork done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T10:54:10+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker database groundwork",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-21T10:51:40+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker storage update done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T10:50:54+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker privacy storage update done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T10:47:37+00:00"
+  },
   {
    "bot": "Coder",
    "event": "Checker admin feature build done",
@@ -1071,7 +1135,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-21T10:43:45+00:00",
+ "lastEvent": "2026-10-21T10:58:58+00:00",
  "rooms": {
   "Builders": [
    {
