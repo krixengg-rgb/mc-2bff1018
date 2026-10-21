@@ -7,10 +7,10 @@
    "ts": "2026-10-16T10:40:21+00:00"
   },
   "Coder": {
-   "event": "Applying spec and content updates",
+   "event": "Checker config update done",
    "group": null,
-   "status": "working",
-   "ts": "2026-10-21T10:25:51+00:00"
+   "status": "finished",
+   "ts": "2026-10-21T10:38:54+00:00"
   },
   "Dave": {
    "event": "Logging rule confirmed; ready for next task",
@@ -108,8 +108,8 @@
     "messages": 0
    },
    "2026-10-21": {
-    "events": 5,
-    "finished": 2,
+    "events": 12,
+    "finished": 7,
     "messages": 0
    }
   },
@@ -270,6 +270,62 @@
   }
  },
  "events": [
+  {
+   "bot": "Coder",
+   "event": "Checker config update done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T10:38:54+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker config update done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T10:38:01+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker config update",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-21T10:35:01+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Small checker update done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T10:34:11+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Small checker update",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-21T10:32:19+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker update round complete",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T10:32:05+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Scam checker local build updated",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T10:31:17+00:00"
+  },
   {
    "bot": "Infographic Face",
    "event": "Brand guide and guide graphics updated",
@@ -999,7 +1055,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-21T10:27:40+00:00",
+ "lastEvent": "2026-10-21T10:38:54+00:00",
  "rooms": {
   "Builders": [
    {
