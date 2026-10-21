@@ -1115,6 +1115,41 @@
      "working": 1
     }
    },
+   "Grok Bot": {
+    "events": 2,
+    "finished": 1,
+    "hours": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "messages": 0,
+    "status": {
+     "finished": 1,
+     "working": 1
+    }
+   },
    "Infographic Face": {
     "events": 6,
     "finished": 3,
