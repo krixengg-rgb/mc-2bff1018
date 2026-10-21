@@ -7,10 +7,10 @@
    "ts": "2026-10-16T10:40:21+00:00"
   },
   "Coder": {
-   "event": "Checker share flags done",
+   "event": "Checker digest build",
    "group": null,
-   "status": "finished",
-   "ts": "2026-10-21T10:58:58+00:00"
+   "status": "working",
+   "ts": "2026-10-21T11:01:29+00:00"
   },
   "Dave": {
    "event": "Logging rule confirmed; ready for next task",
@@ -108,8 +108,8 @@
     "messages": 0
    },
    "2026-10-21": {
-    "events": 22,
-    "finished": 13,
+    "events": 25,
+    "finished": 14,
     "messages": 0
    }
   },
@@ -270,6 +270,30 @@
   }
  },
  "events": [
+  {
+   "bot": "Coder",
+   "event": "Checker digest build",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-21T11:01:29+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker share rules update done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T11:00:38+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker share rules update",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-21T10:59:53+00:00"
+  },
   {
    "bot": "Coder",
    "event": "Checker share flags done",
@@ -1135,7 +1159,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-21T10:58:58+00:00",
+ "lastEvent": "2026-10-21T11:01:29+00:00",
  "rooms": {
   "Builders": [
    {

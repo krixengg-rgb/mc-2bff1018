@@ -1046,8 +1046,8 @@
   },
   "2026-10-21": {
    "Coder": {
-    "events": 22,
-    "finished": 13,
+    "events": 25,
+    "finished": 14,
     "hours": [
      0,
      0,
@@ -1060,8 +1060,8 @@
      0,
      0,
      0,
-     22,
-     0,
+     23,
+     2,
      0,
      0,
      0,
@@ -1076,8 +1076,8 @@
     ],
     "messages": 0,
     "status": {
-     "finished": 13,
-     "working": 9
+     "finished": 14,
+     "working": 11
     }
    },
    "Fraud": {
