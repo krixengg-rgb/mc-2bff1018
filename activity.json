@@ -7,10 +7,10 @@
    "ts": "2026-10-16T10:40:21+00:00"
   },
   "Coder": {
-   "event": "Checker digest build",
+   "event": "Started result-card cleanup and notes page round (local build)",
    "group": null,
    "status": "working",
-   "ts": "2026-10-21T11:01:29+00:00"
+   "ts": "2026-10-21T11:11:52+00:00"
   },
   "Dave": {
    "event": "Logging rule confirmed; ready for next task",
@@ -25,10 +25,10 @@
    "ts": "2026-10-16T10:40:13+00:00"
   },
   "Fraud": {
-   "event": "Added prevention sections to draft guides",
+   "event": "Tidied guide wording",
    "group": null,
    "status": "finished",
-   "ts": "2026-10-21T10:17:31+00:00"
+   "ts": "2026-10-21T11:10:34+00:00"
   },
   "Gary": {
    "event": "Added live activity log",
@@ -108,8 +108,8 @@
     "messages": 0
    },
    "2026-10-21": {
-    "events": 25,
-    "finished": 14,
+    "events": 30,
+    "finished": 17,
     "messages": 0
    }
   },
@@ -149,8 +149,8 @@
     "messages": 0
    },
    "2026-10-21": {
-    "events": 5,
-    "finished": 4,
+    "events": 6,
+    "finished": 5,
     "messages": 0
    }
   },
@@ -270,6 +270,54 @@
   }
  },
  "events": [
+  {
+   "bot": "Coder",
+   "event": "Started result-card cleanup and notes page round (local build)",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-21T11:11:52+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Applied guide wording sync note; tests green, local server restarted",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T11:11:23+00:00"
+  },
+  {
+   "bot": "Fraud",
+   "event": "Tidied guide wording",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T11:10:34+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Finished triage flow round; tests green, local server restarted",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T11:09:52+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Started triage flow round (local build)",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-21T11:04:39+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Finished daily digest round; tests green, local server restarted",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T11:03:55+00:00"
+  },
   {
    "bot": "Coder",
    "event": "Checker digest build",
@@ -1159,7 +1207,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-21T11:01:29+00:00",
+ "lastEvent": "2026-10-21T11:11:52+00:00",
  "rooms": {
   "Builders": [
    {
