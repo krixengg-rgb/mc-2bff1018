@@ -7,10 +7,10 @@
    "ts": "2026-10-16T10:40:21+00:00"
   },
   "Coder": {
-   "event": "Started result-card cleanup and notes page round (local build)",
+   "event": "Checker build round complete",
    "group": null,
-   "status": "working",
-   "ts": "2026-10-21T11:11:52+00:00"
+   "status": "finished",
+   "ts": "2026-10-21T11:16:36+00:00"
   },
   "Dave": {
    "event": "Logging rule confirmed; ready for next task",
@@ -108,8 +108,8 @@
     "messages": 0
    },
    "2026-10-21": {
-    "events": 30,
-    "finished": 17,
+    "events": 32,
+    "finished": 19,
     "messages": 0
    }
   },
@@ -270,6 +270,22 @@
   }
  },
  "events": [
+  {
+   "bot": "Coder",
+   "event": "Checker build round complete",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T11:16:36+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Finished result-card cleanup and notes page round; tests green, local server restarted",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T11:16:08+00:00"
+  },
   {
    "bot": "Coder",
    "event": "Started result-card cleanup and notes page round (local build)",
@@ -1207,7 +1223,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-21T11:11:52+00:00",
+ "lastEvent": "2026-10-21T11:16:36+00:00",
  "rooms": {
   "Builders": [
    {
