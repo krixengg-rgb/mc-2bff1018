@@ -25,10 +25,10 @@
    "ts": "2026-10-16T10:40:13+00:00"
   },
   "Fraud": {
-   "event": "Drafting content",
+   "event": "Drafts ready for review",
    "group": null,
-   "status": "working",
-   "ts": "2026-10-21T10:02:01+00:00"
+   "status": "finished",
+   "ts": "2026-10-21T10:10:19+00:00"
   },
   "Gary": {
    "event": "Added live activity log",
@@ -43,10 +43,10 @@
    "ts": "2026-10-20T14:25:31+00:00"
   },
   "Infographic Face": {
-   "event": "Brand concepts started",
+   "event": "Guide graphics started",
    "group": null,
    "status": "working",
-   "ts": "2026-10-21T10:02:12+00:00"
+   "ts": "2026-10-21T10:10:40+00:00"
   },
   "Jarvis": {
    "event": "Logging check-in",
@@ -67,10 +67,10 @@
    "ts": "2026-10-16T10:40:07+00:00"
   },
   "Research": {
-   "event": "Scam checker source and affiliate research written",
+   "event": "Trademark and permission checks",
    "group": null,
-   "status": "finished",
-   "ts": "2026-10-21T10:05:04+00:00"
+   "status": "working",
+   "ts": "2026-10-21T10:09:04+00:00"
   }
  },
  "daily": {
@@ -149,8 +149,8 @@
     "messages": 0
    },
    "2026-10-21": {
-    "events": 1,
-    "finished": 0,
+    "events": 2,
+    "finished": 1,
     "messages": 0
    }
   },
@@ -195,8 +195,8 @@
     "messages": 0
    },
    "2026-10-21": {
-    "events": 1,
-    "finished": 0,
+    "events": 3,
+    "finished": 1,
     "messages": 0
    }
   },
@@ -263,13 +263,53 @@
     "messages": 0
    },
    "2026-10-21": {
-    "events": 2,
-    "finished": 1,
+    "events": 4,
+    "finished": 2,
     "messages": 0
    }
   }
  },
  "events": [
+  {
+   "bot": "Infographic Face",
+   "event": "Guide graphics started",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-21T10:10:40+00:00"
+  },
+  {
+   "bot": "Fraud",
+   "event": "Drafts ready for review",
+   "progress": 100,
+   "status": "finished",
+   "task": "Scam guides",
+   "ts": "2026-10-21T10:10:19+00:00"
+  },
+  {
+   "bot": "Research",
+   "event": "Trademark and permission checks",
+   "progress": 10,
+   "status": "working",
+   "task": "Scam checker research",
+   "ts": "2026-10-21T10:09:04+00:00"
+  },
+  {
+   "bot": "Research",
+   "event": "Added UK ID monitoring and call blocker affiliate notes",
+   "progress": 100,
+   "status": "finished",
+   "task": "Scam checker research",
+   "ts": "2026-10-21T10:08:48+00:00"
+  },
+  {
+   "bot": "Infographic Face",
+   "event": "Brand concepts delivered",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-21T10:08:35+00:00"
+  },
   {
    "bot": "Research",
    "event": "Scam checker source and affiliate research written",
@@ -879,7 +919,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-21T10:05:04+00:00",
+ "lastEvent": "2026-10-21T10:10:40+00:00",
  "rooms": {
   "Builders": [
    {
@@ -891,20 +931,20 @@
  },
  "tasks": [
   {
-   "bot": "Research",
-   "created": "2026-10-21T10:02:05+00:00",
-   "progress": 100,
-   "status": "finished",
-   "title": "Scam checker research",
-   "updated": "2026-10-21T10:05:04+00:00"
-  },
-  {
    "bot": "Fraud",
    "created": "2026-10-21T10:02:01+00:00",
-   "progress": 5,
-   "status": "working",
+   "progress": 100,
+   "status": "finished",
    "title": "Scam guides",
-   "updated": "2026-10-21T10:02:01+00:00"
+   "updated": "2026-10-21T10:10:19+00:00"
+  },
+  {
+   "bot": "Research",
+   "created": "2026-10-21T10:02:05+00:00",
+   "progress": 10,
+   "status": "working",
+   "title": "Scam checker research",
+   "updated": "2026-10-21T10:09:04+00:00"
   },
   {
    "bot": "Entertainment Bot",

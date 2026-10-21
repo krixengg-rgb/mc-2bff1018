@@ -1080,74 +1080,6 @@
     }
    },
    "Fraud": {
-    "events": 1,
-    "finished": 0,
-    "hours": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     1,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0
-    ],
-    "messages": 0,
-    "status": {
-     "working": 1
-    }
-   },
-   "Infographic Face": {
-    "events": 1,
-    "finished": 0,
-    "hours": [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     1,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0
-    ],
-    "messages": 0,
-    "status": {
-     "working": 1
-    }
-   },
-   "Research": {
     "events": 2,
     "finished": 1,
     "hours": [
@@ -1180,6 +1112,76 @@
     "status": {
      "finished": 1,
      "working": 1
+    }
+   },
+   "Infographic Face": {
+    "events": 3,
+    "finished": 1,
+    "hours": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "messages": 0,
+    "status": {
+     "finished": 1,
+     "working": 2
+    }
+   },
+   "Research": {
+    "events": 4,
+    "finished": 2,
+    "hours": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "messages": 0,
+    "status": {
+     "finished": 2,
+     "working": 2
     }
    }
   }
