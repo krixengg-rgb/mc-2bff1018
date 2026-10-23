@@ -1295,8 +1295,8 @@
     }
    },
    "Grok Bot": {
-    "events": 10,
-    "finished": 5,
+    "events": 12,
+    "finished": 6,
     "hours": [
      0,
      0,
@@ -1317,7 +1317,7 @@
      0,
      2,
      0,
-     0,
+     2,
      0,
      0,
      0,
@@ -1325,8 +1325,8 @@
     ],
     "messages": 0,
     "status": {
-     "finished": 5,
-     "working": 5
+     "finished": 6,
+     "working": 6
     }
    }
   }
