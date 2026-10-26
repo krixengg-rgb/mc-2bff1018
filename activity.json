@@ -7,10 +7,10 @@
    "ts": "2026-10-16T10:40:21+00:00"
   },
   "Coder": {
-   "event": "Checker build round complete",
+   "event": "Started review, accessibility, security and packaging round (local build)",
    "group": null,
-   "status": "finished",
-   "ts": "2026-10-21T11:16:36+00:00"
+   "status": "working",
+   "ts": "2026-10-26T21:29:28+00:00"
   },
   "Dave": {
    "event": "Logging rule confirmed; ready for next task",
@@ -25,10 +25,10 @@
    "ts": "2026-10-23T07:53:41+00:00"
   },
   "Fraud": {
-   "event": "Tidied guide wording",
+   "event": "Drafting next batch of guides",
    "group": null,
-   "status": "finished",
-   "ts": "2026-10-21T11:10:34+00:00"
+   "status": "working",
+   "ts": "2026-10-26T21:29:31+00:00"
   },
   "Gary": {
    "event": "Added live activity log",
@@ -43,10 +43,10 @@
    "ts": "2026-10-25T15:02:05+00:00"
   },
   "Infographic Face": {
-   "event": "Brand guide and guide graphics updated",
+   "event": "Decision sheet delivered",
    "group": null,
    "status": "finished",
-   "ts": "2026-10-21T10:27:40+00:00"
+   "ts": "2026-10-26T21:30:49+00:00"
   },
   "Jarvis": {
    "event": "Logging check-in",
@@ -67,10 +67,10 @@
    "ts": "2026-10-16T10:40:07+00:00"
   },
   "Research": {
-   "event": "Trademark check written up",
+   "event": "Domain recheck and reimbursement-scope notes added",
    "group": null,
    "status": "finished",
-   "ts": "2026-10-21T10:11:59+00:00"
+   "ts": "2026-10-26T21:30:04+00:00"
   }
  },
  "daily": {
@@ -110,6 +110,11 @@
    "2026-10-21": {
     "events": 32,
     "finished": 19,
+    "messages": 0
+   },
+   "2026-10-26": {
+    "events": 2,
+    "finished": 0,
     "messages": 0
    }
   },
@@ -156,6 +161,11 @@
    "2026-10-21": {
     "events": 6,
     "finished": 5,
+    "messages": 0
+   },
+   "2026-10-26": {
+    "events": 1,
+    "finished": 0,
     "messages": 0
    }
   },
@@ -228,6 +238,11 @@
     "events": 6,
     "finished": 3,
     "messages": 0
+   },
+   "2026-10-26": {
+    "events": 2,
+    "finished": 1,
+    "messages": 0
    }
   },
   "Jarvis": {
@@ -296,10 +311,63 @@
     "events": 5,
     "finished": 3,
     "messages": 0
+   },
+   "2026-10-26": {
+    "events": 1,
+    "finished": 1,
+    "messages": 0
    }
   }
  },
  "events": [
+  {
+   "bot": "Infographic Face",
+   "event": "Decision sheet delivered",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-26T21:30:49+00:00"
+  },
+  {
+   "bot": "Infographic Face",
+   "event": "Building decision sheet",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-26T21:30:13+00:00"
+  },
+  {
+   "bot": "Research",
+   "event": "Domain recheck and reimbursement-scope notes added",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-26T21:30:04+00:00"
+  },
+  {
+   "bot": "Fraud",
+   "event": "Drafting next batch of guides",
+   "progress": 5,
+   "status": "working",
+   "task": "Scam guides batch 2",
+   "ts": "2026-10-26T21:29:31+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Started review, accessibility, security and packaging round (local build)",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-26T21:29:28+00:00"
+  },
+  {
+   "bot": "Coder",
+   "event": "Checker review pack and hardening",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-26T21:29:20+00:00"
+  },
   {
    "bot": "Grok Bot",
    "event": "Periodic check done",
@@ -1565,7 +1633,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-25T15:02:05+00:00",
+ "lastEvent": "2026-10-26T21:30:49+00:00",
  "rooms": {
   "Builders": [
    {
@@ -1576,6 +1644,14 @@
   ]
  },
  "tasks": [
+  {
+   "bot": "Fraud",
+   "created": "2026-10-26T21:29:31+00:00",
+   "progress": 5,
+   "status": "working",
+   "title": "Scam guides batch 2",
+   "updated": "2026-10-26T21:29:31+00:00"
+  },
   {
    "bot": "Research",
    "created": "2026-10-21T10:02:05+00:00",
