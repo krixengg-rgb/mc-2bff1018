@@ -7,10 +7,10 @@
    "ts": "2026-10-16T10:40:21+00:00"
   },
   "Coder": {
-   "event": "Started review, accessibility, security and packaging round (local build)",
+   "event": "Finished local review, accessibility, security and deploy-prep round",
    "group": null,
-   "status": "working",
-   "ts": "2026-10-26T21:29:28+00:00"
+   "status": "finished",
+   "ts": "2026-10-26T21:52:44+00:00"
   },
   "Dave": {
    "event": "Logging rule confirmed; ready for next task",
@@ -113,8 +113,8 @@
     "messages": 0
    },
    "2026-10-26": {
-    "events": 2,
-    "finished": 0,
+    "events": 3,
+    "finished": 1,
     "messages": 0
    }
   },
@@ -320,6 +320,14 @@
   }
  },
  "events": [
+  {
+   "bot": "Coder",
+   "event": "Finished local review, accessibility, security and deploy-prep round",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-26T21:52:44+00:00"
+  },
   {
    "bot": "Research",
    "event": "Regulator timeline check for guides done",
@@ -1673,7 +1681,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-26T21:43:06+00:00",
+ "lastEvent": "2026-10-26T21:52:44+00:00",
  "rooms": {
   "Builders": [
    {
