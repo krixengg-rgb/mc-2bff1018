@@ -25,10 +25,10 @@
    "ts": "2026-10-23T07:53:41+00:00"
   },
   "Fraud": {
-   "event": "Drafting next batch of guides",
+   "event": "Drafted five more scam guides",
    "group": null,
-   "status": "working",
-   "ts": "2026-10-26T21:29:31+00:00"
+   "status": "finished",
+   "ts": "2026-10-26T21:37:14+00:00"
   },
   "Gary": {
    "event": "Added live activity log",
@@ -43,10 +43,10 @@
    "ts": "2026-10-25T15:02:05+00:00"
   },
   "Infographic Face": {
-   "event": "Decision sheet delivered",
+   "event": "Batch 2 guide graphics rendered",
    "group": null,
    "status": "finished",
-   "ts": "2026-10-26T21:30:49+00:00"
+   "ts": "2026-10-26T21:42:06+00:00"
   },
   "Jarvis": {
    "event": "Logging check-in",
@@ -67,10 +67,10 @@
    "ts": "2026-10-16T10:40:07+00:00"
   },
   "Research": {
-   "event": "Domain recheck and reimbursement-scope notes added",
+   "event": "Regulator timeline check for guides done",
    "group": null,
    "status": "finished",
-   "ts": "2026-10-26T21:30:04+00:00"
+   "ts": "2026-10-26T21:43:06+00:00"
   }
  },
  "daily": {
@@ -164,8 +164,8 @@
     "messages": 0
    },
    "2026-10-26": {
-    "events": 1,
-    "finished": 0,
+    "events": 2,
+    "finished": 1,
     "messages": 0
    }
   },
@@ -240,8 +240,8 @@
     "messages": 0
    },
    "2026-10-26": {
-    "events": 2,
-    "finished": 1,
+    "events": 4,
+    "finished": 2,
     "messages": 0
    }
   },
@@ -313,13 +313,53 @@
     "messages": 0
    },
    "2026-10-26": {
-    "events": 1,
-    "finished": 1,
+    "events": 3,
+    "finished": 3,
     "messages": 0
    }
   }
  },
  "events": [
+  {
+   "bot": "Research",
+   "event": "Regulator timeline check for guides done",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-26T21:43:06+00:00"
+  },
+  {
+   "bot": "Infographic Face",
+   "event": "Batch 2 guide graphics rendered",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-26T21:42:06+00:00"
+  },
+  {
+   "bot": "Research",
+   "event": "Domain checks closed; regulator request drafted (not sent)",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-26T21:38:10+00:00"
+  },
+  {
+   "bot": "Infographic Face",
+   "event": "Building batch 2 guide graphics",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-26T21:37:49+00:00"
+  },
+  {
+   "bot": "Fraud",
+   "event": "Drafted five more scam guides",
+   "progress": 100,
+   "status": "finished",
+   "task": "Scam guides batch 2",
+   "ts": "2026-10-26T21:37:14+00:00"
+  },
   {
    "bot": "Infographic Face",
    "event": "Decision sheet delivered",
@@ -1633,7 +1673,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-26T21:30:49+00:00",
+ "lastEvent": "2026-10-26T21:43:06+00:00",
  "rooms": {
   "Builders": [
    {
@@ -1647,10 +1687,10 @@
   {
    "bot": "Fraud",
    "created": "2026-10-26T21:29:31+00:00",
-   "progress": 5,
-   "status": "working",
+   "progress": 100,
+   "status": "finished",
    "title": "Scam guides batch 2",
-   "updated": "2026-10-26T21:29:31+00:00"
+   "updated": "2026-10-26T21:37:14+00:00"
   },
   {
    "bot": "Research",
