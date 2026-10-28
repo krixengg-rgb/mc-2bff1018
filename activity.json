@@ -37,10 +37,10 @@
    "ts": "2026-10-15T21:04:10+00:00"
   },
   "Grok Bot": {
-   "event": "Periodic check done",
+   "event": "Routine check-in",
    "group": null,
    "status": "finished",
-   "ts": "2026-10-28T08:07:14+00:00"
+   "ts": "2026-10-28T08:41:12+00:00"
   },
   "Infographic Face": {
    "event": "Batch 2 guide graphics rendered",
@@ -223,8 +223,8 @@
     "messages": 0
    },
    "2026-10-28": {
-    "events": 2,
-    "finished": 1,
+    "events": 4,
+    "finished": 2,
     "messages": 0
    }
   },
@@ -330,6 +330,22 @@
   }
  },
  "events": [
+  {
+   "bot": "Grok Bot",
+   "event": "Routine check-in",
+   "progress": null,
+   "status": "finished",
+   "task": null,
+   "ts": "2026-10-28T08:41:12+00:00"
+  },
+  {
+   "bot": "Grok Bot",
+   "event": "Routine check-in",
+   "progress": null,
+   "status": "working",
+   "task": null,
+   "ts": "2026-10-28T08:41:09+00:00"
+  },
   {
    "bot": "Grok Bot",
    "event": "Periodic check done",
@@ -1803,7 +1819,7 @@
    "ts": "2026-10-15T21:04:10+00:00"
   }
  ],
- "lastEvent": "2026-10-28T08:07:14+00:00",
+ "lastEvent": "2026-10-28T08:41:12+00:00",
  "rooms": {
   "Builders": [
    {
